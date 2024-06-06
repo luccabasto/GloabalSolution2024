@@ -1,0 +1,14 @@
+@use './variables.module.scss';
+@use './mixins.scss' as mixins; 
+
+
+.body{
+    background-color: variables.$bg-color;
+    color: variables.$text-color;
+    text-decoration: none;
+}
+
+.container{
+    @include mixins.flexColumn
+};
+ 

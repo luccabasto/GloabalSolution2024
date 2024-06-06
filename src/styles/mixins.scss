@@ -1,0 +1,14 @@
+
+@use './variables.module.scss';
+
+@mixin flexDefault {
+    display: flex;
+    align-items: center;
+    gap:10px ;
+}
+
+@mixin flexColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

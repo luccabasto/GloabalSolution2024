@@ -1,6 +1,6 @@
 ///
 //// test-Sass
-import variables from '@/styles/variaveis.module.scss'
+import variables from '@/styles/variables.module.scss'
 
 
 const AboutPage = () => {
