@@ -1,16 +1,17 @@
 ///test-Sass
-import variables from '@/styles/variables.module.scss';
-
+import styles from '@/styles/login.module.scss';
+import {LoginForm} from '@/components/form/loginForm/loginForm';
+import { handleGithubLogin } from '@/lib/action';
 
 const LoginPage = () => {
   return (
-    <div>
-      <section>
-        <h1>Hello, Beezus</h1>
-        <p>Parabéns por chegar até aqui na navegação. </p>
-        <p style={{color:variables.secondaryColor}}>Essa é a sua página de login</p>
-        <input type="text" className='border-black p-2' />
-      </section>
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
+        <form action={handleGithubLogin}>
+          <button className={styles.github}>Login com o Github</button>
+        </form>
+        <LoginForm/>
+      </div>
     </div>
   )
 }

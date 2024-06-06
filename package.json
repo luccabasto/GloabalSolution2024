@@ -10,12 +10,15 @@
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "mongoose": "^8.4.1",
     "next": "14.2.3",
     "next-auth": "^4.24.7",
+    "oidc-token-hash": "^5.0.3",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
