@@ -1,25 +1,24 @@
 import path from "path"
 
 export const linksData = [
+    
     {
-        title:"HomePage",
-        path:"/",
+        title: "O que é a NatuCoin?",
+        path:"/blog",
     },
+    
     {
-        title: "Sobre nóoós",
-        path:"/about",
+        title: "Sobre nós",
+        path: "/about"
     },
-    {
-        title:"Fale conosco",
-        path: "/contact",
-    },
-    {
-        title: "Blog",
-        path: "/blog"
-    },
+    
     {
         title: "Cadastro",
         path: "/cadastro"
+    },
+    {
+        title: "Entrar",
+        path: "/login"
     },
     
 ];

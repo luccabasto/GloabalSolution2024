@@ -1,18 +1,43 @@
-///
-import { Links } from "./links/Links";
+// Navbar.tsx
+'use client'
 import Link from 'next/link';
-import {auth} from '@/lib/auth';
+import Image from 'next/image';
+import { useState } from 'react';
+import { ResponsiveMenu } from './ResponsiveMenu';
 
+const LogoLink = () => (
+  <Link href="/" passHref>
+    <div className="lg:flex lg:justify-center lg:flex-row md:flex md:flex-col md:items-center">
+      <Image src="/logo.png" alt="Logo" width={75} height={50} />
+      <h6 className="lg:pl-[10px] hidden lg:block text-xl font-semibold">NatuCoin</h6>
+    </div>
+  </Link>
+);
 
 export const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  //const session = await auth()
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
-    <div className="h-[100px] flex items-center justify-between">
-      <Link href='/' className="text-[30px] font-bold">Logo</Link>
-        <div>
-           <Links/>
+    <header className="bg-white shadow-md relative">
+      <div className="container mx-auto flex justify-between items-center p-4">
+        <div className="h-auto w-auto text-center">
+          <LogoLink />
         </div>
-    </div>
-  )
-}
+        <ResponsiveMenu isOpen={menuOpen} onClose={toggleMenu} />
+      </div>
+      {menuOpen && (
+        <div className="absolute top-full left-0 w-full bg-white shadow-md z-10">
+          <ResponsiveMenu isOpen={menuOpen} onClose={closeMenu} />
+        </div>
+      )}
+    </header>
+  );
+};
