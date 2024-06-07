@@ -17,4 +17,9 @@ export const linksData = [
         title: "Blog",
         path: "/blog"
     },
+    {
+        title: "Cadastro",
+        path: "/cadastro"
+    },
+    
 ];

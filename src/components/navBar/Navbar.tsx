@@ -1,8 +1,7 @@
 ///
 import { Links } from "./links/Links";
 import Link from 'next/link';
-
-//import {auth} from '@/lib/auth';
+import {auth} from '@/lib/auth';
 
 
 export const Navbar = () => {

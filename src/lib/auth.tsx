@@ -1,79 +1,79 @@
-import NextAuth from 'next-auth';
-import Github from 'next-auth/providers/github';
-import CredentialsProvider from 'next-auth/providers/credentials';
-import bcrypt from 'bcrypt';
-//import's local
-import {authConfig} from './auth.config';
-import { connectToDb } from "./utils";
-import { User } from "./models";
+import { Session } from "inspector";
 
-const login = async (credentials) => {
+interface User {
+    id: string;
+    username: string;
+    email: string;
+    // outros campos do usuário, se houver
+  }
+  
+  interface ApiUser {
+    id: string;
+    username: string;
+    email: string;
+    // outros campos do usuário, se houver
+  }
+  
+  // Função para autenticar o usuário
+  export async function login(credentials: Record<string, string> | undefined): Promise<User | null> {
     try {
-        connectToDb();
-        const user = await User.findOne({username: credentials.username});
-
-        if (!user) throw new Error("Credenciais para o acesso errada");
-
-        const isPasswordCorrect = await bcrypt.compare(
-            credentials.password,
-            user.password
-        );
-
-        if(!isPasswordCorrect) throw new Error("Credenciais para o acesso errada");
-
-        return user;
-    } catch (err){
-        console.log(err);
-        throw new Error("Falha ao fazer o login");
-    }
-};
-
-export const {
-    handlers: {GET, POST}, 
-    auth,
-    signIn,
-    signOut,
-} = NextAuth({
-    ...authConfig,
-    providers: [
-        Github({
-            clientId: process.env.GITHUB_ID,
-            clientSecret: process.env.GITHUB_SECRET,
-        }),
-        CredentialsProvider({
-            async authorize(credentials) {
-                try {
-                    const user = await login(credentials);
-                    return user;
-                } catch (err){
-                    return null;
-                }
-            },
-        }),
-    ],
-    callbacks: {
-        async signIn({user, account, profile}){
-            if (account?.provider === 'github'){
-                connectToDb();
-                try {
-                    const user = await User.findOne({email: profile?.email});
-
-                    if (!user){
-                        const novoUser = new User({
-                            username: profile.login,
-                            email: profile.email,
-                            image: profile.avatar_url,
-                        });
-
-                        await newUser.save();
-                    }
-                } catch (err){
-                    console.log(err);
-                    return false;
-                }
-            }
-            return true;
+      // Chama a API local para autenticar o usuário
+      const response = await fetch('sua/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
         },
-        ...authConfig.callbacks,
-    },
-});
+        body: JSON.stringify(credentials)
+      });
+  
+      if (!response.ok) {
+        throw new Error('Erro ao fazer login');
+      }
+  
+      const userFromApi: ApiUser = await response.json();
+  
+      // Mapeia os dados do usuário da API para o tipo User esperado pelo NextAuth
+      const user: User = {
+        id: userFromApi.id,
+        username: userFromApi.username,
+        email: userFromApi.email,
+        // outros campos do usuário, se houver
+      };
+  
+      return user;
+    } catch (err) {
+      console.error(err);
+      throw new Error("Erro ao fazer login");
+    }
+  }
+  
+  // Função para buscar a sessão do usuário
+  export async function getSession(session: { userId: any; }): Promise<any> {
+    try {
+      // Se a sessão não existir, retorne null
+      if (!session || !session.userId) return null;
+  
+      // Busca os dados do usuário com base no ID da sessão
+      const response = await fetch(`sua/api/usuarios/${session.userId}`);
+      if (!response.ok) {
+        throw new Error('Erro ao buscar sessão do usuário');
+      }
+  
+      const userData = await response.json();
+  
+      // Retorna os dados da sessão do usuário
+      return {
+        ...session,
+        user: {
+          id: userData.id,
+          username: userData.username,
+          email: userData.email,
+          // outros campos do usuário, se houver
+        }
+      };
+    } catch (err) {
+      console.error(err);
+      throw new Error("Erro ao buscar sessão do usuário");
+    }
+  }
+  

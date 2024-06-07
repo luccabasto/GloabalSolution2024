@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "username": "Daniel Albuquerque",
+        "password": "$2b$08$DTJoYvBbDUODqPEfgZNUd.K8YAv.EU95H.8je2QFt2FlGACGbXHw2"
+    },
+    {
+        "id": 2,
+        "username": "Xavier",
+        "password": "$2b$08$tRhof7YiU..D2sy2xZGYZeunoWyJRPL5iLfEf/cgxwK3esIoqpcEK"
+    } 
+]
