@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
         <body className={styles.body}>
-          <div className='w-full m-auto pl-[50px] pr-[50px] min-h-screen flex flex-col justify-between sm:w-[475px] md:w-[768px] lg:w-[1366px] md:pl-5 md:pr-5 container'>
+          <div className='w-full min-h-screen flex flex-col justify-between'>
             <Navbar/>
             {children}
             <Footer/>

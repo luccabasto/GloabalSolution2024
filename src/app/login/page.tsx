@@ -2,16 +2,16 @@
 // login/page.tsx
 import React from 'react';
 import Login from '../../components/loginForm/login';
-//styles
+
 
 const LoginPage = () => {
   return (
     <section className='h-screen'>
-         <section className="gradient-form h-full bg-neutral-200 dark:bg-neutral-700">
+         <section className="gradient-form h-full bg-neutral-200">
             <div className="container h-full p-10">
                 <div className="flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
                 <div className="w-full">
-                    <div className="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
+                    <div className="block rounded-lg bg-white shadow-lg ">
                     <div className="g-0 lg:flex lg:flex-wrap">
                         {/**Container a esquerda */}
                         <div className="px-4 md:px-0 lg:w-6/12">
@@ -20,9 +20,9 @@ const LoginPage = () => {
                             <div className="text-center">
                                 <img
                                 className="mx-auto w-48"
-                                src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                                src="/logo.png"
                                 alt="logo" />
-                                <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold"> Nós somos a ***** </h4>
+                                <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold"> Nós somos a <span className='text-intenseBlue'>A-tension.co</span> </h4>
                             </div> {/**Logo */}
                             <Login/>
                             {/**Ainda não tem cadastro? */}
@@ -60,7 +60,7 @@ const LoginPage = () => {
                 </div>
                 </div>
             </div>
-</section>
+        </section>
     </section>
   );
 };

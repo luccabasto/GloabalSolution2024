@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { ResponsiveMenu } from './ResponsiveMenu';
+import { ResponsiveMenu } from '@/components/navBar/responsiveMenu';
 
 const LogoLink = () => (
   <Link href="/" passHref>
@@ -33,11 +33,7 @@ export const Navbar = () => {
         </div>
         <ResponsiveMenu isOpen={menuOpen} onClose={toggleMenu} />
       </div>
-      {menuOpen && (
-        <div className="absolute top-full left-0 w-full bg-white shadow-md z-10">
-          <ResponsiveMenu isOpen={menuOpen} onClose={closeMenu} />
-        </div>
-      )}
+     
     </header>
   );
 };
