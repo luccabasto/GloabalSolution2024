@@ -15,7 +15,8 @@ const config: Config = {
       },
       colors:{
         'intenseBlue': '#020617',
-        'blueGreen': '#027373'
+        'blueGreen': '#027373',
+        'justGreen': '#067321'
       }
     },
   },

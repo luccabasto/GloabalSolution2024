@@ -6,7 +6,7 @@ import Login from '../../components/loginForm/login';
 
 const LoginPage = () => {
   return (
-    <section className='h-screen'>
+    <section className=''>
          <section className="gradient-form h-full bg-neutral-200">
             <div className="container h-full p-10">
                 <div className="flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
@@ -19,20 +19,20 @@ const LoginPage = () => {
                             {/**Logo aqui */}
                             <div className="text-center">
                                 <img
-                                className="mx-auto w-48"
+                                className="mx-auto w-48 pt-5"
                                 src="/logo.png"
                                 alt="logo" />
-                                <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold"> Nós somos a <span className='text-intenseBlue'>A-tension.co</span> </h4>
+                                <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold text-blueGreen"> Nós somos a <span className='text-intenseBlue'>A-tension.co</span> </h4>
                             </div> {/**Logo */}
                             <Login/>
                             {/**Ainda não tem cadastro? */}
-                            <div className="flex items-center justify-between pb-6">
-                                <p className="mb-0 me-2">Você ainda não possui uma conta?</p>
+                            <div className="flex items-center justify-between pb-6 text-blueGreen">
+                                <p className="mb-0 me-2 cursor-none">Você ainda não possui uma conta?</p>
                                 <button type="button"
-                                    className="inline-block rounded border-2 border-danger px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-danger-50/50 hover:text-danger-600 focus:border-danger-600 focus:bg-danger-50/50 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-rose-950 dark:focus:bg-rose-950"
+                                    className="inline-block rounded border-2 border-danger px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-danger-50/50 hover:text-danger-600 focus:border-danger-600 focus:bg-danger-50/50 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-justGreen dark:hover:text-white"
                                     data-twe-ripple-init
                                     data-twe-ripple-color="light">
-                                    <a href="/cadastro">Register</a>
+                                    <a href="/cadastro">Cadastrar</a>
                                 </button>
                             </div> {/**Ainda não tem cadastro? */}
                         </div>

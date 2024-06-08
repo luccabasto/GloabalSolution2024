@@ -1,9 +1,9 @@
 export const  Footer = () => {
     return (
-        <div className=" w-full flex items-center justify-between bg-gray-800 md:flex-col md:items-center md:justify-around">
+        <div className=" flex items-center justify-between bg-gray-800 md:flex-col md:items-center md:justify-around relative text-white">
             <div>Logo aqui</div>
             <div>
-                <ul className="no-underline flex sm:flex-col">
+                <ul className="no-underline flex sm:flex-col ">
                     <h3>DevTeam</h3>
                     <li>
                         <a href="https://www.linkedin.com/in/lucas-basto/"> Lucca Basto - RM:553771</a>

@@ -3,27 +3,28 @@
 import React, { useState } from 'react';
 
 const SignupForm: React.FC = () => {
-  const [username, setUsername] = useState('');
+  const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [senha, setSenha] = useState('');
+  const [confirmSenha, setConfirmSenha] = useState('');
   const [confirmEmail, setConfirmEmail] = useState('');
   const [logradouro, setLogradouro] = useState('');
   const [cep, setCep] = useState('');
-  const [uf, setUf] = useState('');
+  const [UF, setUf] = useState('');
+  const [localidade, setLocalidade] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Verificar se todos os campos obrigatórios estão preenchidos
-    if (!username || !email || !password || !confirmPassword || !confirmEmail || !logradouro || !cep || !uf) {
+    if (!nome || !email || !senha || !confirmSenha || !confirmEmail || !logradouro || !cep || !localidade || !UF) {
       setErrorMessage('Todos os campos são obrigatórios.');
       return;
     }
 
     // Verificar se as senhas coincidem
-    if (password !== confirmPassword) {
+    if (senha !== confirmSenha) {
       setErrorMessage('As senhas não coincidem.');
       return;
     }
@@ -36,17 +37,18 @@ const SignupForm: React.FC = () => {
 
     // Criar um objeto de usuário com os dados do formulário
     const newUser = { 
-      username, 
+      nome, 
       email,
-      password,
+      senha,
       logradouro,
+      localidade,
       cep,
-      uf
+      UF
     };
 
     // Enviar os dados do usuário para a API de cadastro
     try {
-      const response = await fetch('http://localhost:3001/api/signup', {
+      const response = await fetch('http://localhost:8080/usuario', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -57,14 +59,15 @@ const SignupForm: React.FC = () => {
       // Verificar se o cadastro foi bem-sucedido
       if (response.ok) {
         // Limpar os campos do formulário
-        setUsername('');
+        setNome('');
         setEmail('');
-        setPassword('');
-        setConfirmPassword('');
+        setSenha('');
+        setConfirmSenha('');
         setConfirmEmail('');
         setLogradouro('');
         setCep('');
         setUf('');
+        setLocalidade('');
         setErrorMessage('');
 
         // Exibir uma mensagem de sucesso (opcional)
@@ -86,11 +89,13 @@ const SignupForm: React.FC = () => {
 
     // Realizar a consulta do CEP na API de consulta pública (opcional)
     try {
-      const response = await fetch(`https://viacep.com.br/ws/${value}/json/`);
+      const response = await fetch (`https://viacep.com.br/ws/${value}/json/`);
       if (response.ok) {
         const data = await response.json();
+        setCep(data.cep || '');
         setLogradouro(data.logradouro || '');
         setUf(data.uf || '');
+        setLocalidade(data.localidade || '')
       }
     } catch (error) {
       console.error('Erro ao consultar CEP:', error);
@@ -98,91 +103,96 @@ const SignupForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSignup}>
+    <section className=''>
       <div>
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
+        <div>
+        <form onSubmit={handleSignup} className='m-5' >
+          <div>
+            <label htmlFor="nome" className='mr-5 text-xl'>Usuário:</label>
+              <input
+                type="text"
+                id="nome"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+                required  className='rounded-md text-black'/>
+
+          </div>
+
+          <div>
+                <label htmlFor="email" className='mr-5 text-xl'>Email:</label>
+                    <input
+                      type="email"
+                      id="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required  className='rounded-md text-black' />
+          </div>
+          <div>
+                <label htmlFor="senha" className='mr-5 text-xl'>Senha:</label>
+                <input
+                  type="password"
+                  id="senha"
+                  value={senha}
+                  onChange={(e) => setSenha(e.target.value)}
+                  required  className='rounded-md text-black'/>
+          </div>
+          <div>
+              <label htmlFor="confirmSenha" >Confir Senha:</label>
+                  <input
+                  type="password"
+                  id="confirmSenha"
+                  value={confirmSenha}
+                  onChange={(e) => setConfirmSenha(e.target.value)}
+                  required  className='rounded-md text-black' />
+          </div>
+      <div>
+        
       </div>
       <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="confirmEmail">Confirmar Email:</label>
-        <input
-          type="email"
-          id="confirmEmail"
-          value={confirmEmail}
-          onChange={(e) => setConfirmEmail(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Senha:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="confirmPassword">Confirmar Senha:</label>
-        <input
-          type="password"
-          id="confirmPassword"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="logradouro">Logradouro:</label>
-        <input
-          type="text"
-          id="logradouro"
-          value={logradouro}
-          onChange={(e) => setLogradouro(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="cep">CEP:</label>
+        <label htmlFor="cep"  className='mr-5 text-xl'>CEP:</label>
         <input
           type="text"
           id="cep"
           value={cep}
           onChange={handleCepChange}
-          required
-        />
+          required className='rounded-md text-black'/>
       </div>
       <div>
-        <label htmlFor="uf">UF:</label>
+        <label htmlFor="logradouro"  className='mr-5 text-xl'>Logradouro:</label>
         <input
           type="text"
-          id="uf"
-          value={uf}
+          id="logradouro"
+          value={logradouro}
+          onChange={(e) => setLogradouro(e.target.value)}
+          required className='rounded-md text-black'/>
+      </div>
+      
+      <div>
+        <label htmlFor="localidade"  className='mr-5 text-xl'>Localidade:</label>
+        <input
+          type="localidade"
+          id="localidade"
+          value={localidade}
+          onChange={(e) => setLocalidade(e.target.value)}
+          required   className='rounded-md text-black'/>
+      </div>
+
+      <div>
+        <label htmlFor="UF"  className='mr-5 text-xl'>UF:</label>
+        <input
+          type="text"
+          id="UF"
+          value={UF}
           onChange={(e) => setUf(e.target.value)}
-          required
-        />
+          required className='rounded-md text-black'/>
       </div>
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-      <button type="submit">Concluir</button>
+      <button type="submit"  className='mr-5 text-xl items-center bg-slate-50 text-justGreen rounded-sm p-2'>Concluir</button>
     </form>
+        </div>
+      </div>
+    </section>
   );
 };
 
-export default SignupForm;
+export default SignupForm;
