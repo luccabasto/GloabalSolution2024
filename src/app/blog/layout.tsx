@@ -3,7 +3,7 @@
 
 import { ReactNode } from "react"
 
-const BlogLayout =({children}) => {
+const BlogLayout =({children}:any) => {
     return (
         <>
             <div>
