@@ -1,0 +1,11 @@
+@use './variables.module.scss';
+@use './mixins.scss' as mixins; 
+
+.base {
+    background-color: #f8f9fa;
+    color: #495057;
+}
+
+.spaN{
+    color: #1864ab;
+}
