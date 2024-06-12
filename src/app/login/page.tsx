@@ -11,7 +11,7 @@ const LoginPage = () => {
             <div className="container h-full p-10">
                 <div className="flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
                 <div className="w-full">
-                    <div className="block rounded-lg bg-white shadow-lg ">
+                    <div className="block rounded-lg bg-white shadow-lg">
                     <div className="g-0 lg:flex lg:flex-wrap">
                         {/**Container a esquerda */}
                         <div className="px-4 md:px-0 lg:w-6/12">
@@ -41,17 +41,15 @@ const LoginPage = () => {
                         {/** */} 
                         <div
                         className="flex items-center rounded-b-lg lg:w-6/12 lg:rounded-e-lg lg:rounded-bl-none"
-                        style={{background: "linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)"}}>
+                        style={{
+                            background:'linear-gradient(to right, #00f260, #0575e6)'
+                          }}>
                         <div className="px-4 py-6 text-white md:mx-6 md:p-12">
                             <h4 className="mb-6 text-xl font-semibold">
-                            Somos parte da solução para conseguirmos 
+                            Fazemos parte da solução para desenvolvimento sustentável 
                             </h4>
-                            <p className="text-sm">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip ex
-                            ea commodo consequat.
+                            <p className="text-md">
+                            Queremos que todos façam parte da solução para um desenvolvimento amigável com a nossa Terra e Mar, desde o cidadão da cidade grande até os interior. Afinal, a casa é de todos e para todos, precisamos ir além do consumo, precisamos reestrutrar o que já foi extraido em larga escala, repor o que foi utilizado e através da tecnologia criar soluções que nos permita ter um desenvolvimento benéfico e saudável.
                             </p>
                         </div>
                         </div>

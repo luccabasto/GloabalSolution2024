@@ -6,14 +6,17 @@ const AboutPage = () => {
   return (
         <section className='flex flex-col mt-20 md:flex md:flex-row'>
           <article className="text-pretty w-contain">
-            <h3 className='font-semibold text-5xl'>A-tension 
-              <span className='md:text-[28px] text-sm text-nowrap'> co.</span></h3>
-            <p className='mt-10 text-wrap'>Nossa missão é utilizar da tecnologia em prol ao nosso planeta de um forma que permita que todos nós enquanto sociedade faça parte dessa transformação ||Nossa missão é utilizar da tecnologia em prol ao nosso planeta de um forma que permita que todos nós enquanto sociedade faça parte dessa transformação </p>
-          </article>
-          <div className='videos flex flex-col gap-10 py-7 '>
-            <div><iframe className='md:w-[560px] md:h-[315px] w-[250px] h-[150px]' src="https://www.youtube.com/embed/v5noqR7CKZU?si=iaBR0VRfgeFiQ_cV" title="Video pitch" allow="accelerometer; autoplay; clipboard-write; encrypted-media" referrerPolicy="strict-origin-when-cross-origin"></iframe>
+            <h3 className='font-semibold text-5xl ml-2 mr-2'>A-tension 
+              <span className='md:text-[28px] text-sm text-nowrap'> co.</span>
+            </h3>
+            <div className="flex flex-col gap-5 ml-2 mr-2 font-medium items-center">
+              <p className='mt-10 text-wrap'>Nossa missão é utilizar da tecnologia em prol ao nosso planeta de um forma que permita que todos nós enquanto sociedade faça parte dessa transformação.</p>
+              <p>Seguindo um dos objetivos da ODS, queremos gerar a ação para o Consumo e produção responsáveis focado na promoção de recursos e infraestrutura sustentável e acesso a serviços básicos.</p>
             </div>
-            <div><iframe className='md:w-[560px] md:h-[315px] w-[250px] h-[150px]'src="https://www.youtube.com/embed/BY_XwvKogC8?si=HTDzyhxtwwRotu3F" title="Video pitch" allow="accelerometer; autoplay; clipboard-write; encrypted-media" referrerPolicy="strict-origin-when-cross-origin"></iframe>
+ 
+          </article>
+          <div className='md:ml-5 md:mr-5 flex flex-col gap-10 py-7 items-center '>
+            <div><img src="/logo.png" alt="logo" className="p-7" />
             </div>
           </div>
           

@@ -104,93 +104,93 @@ const SignupForm: React.FC = () => {
 
   return (
     <section className=''>
-      <div>
-        <div>
-        <form onSubmit={handleSignup} className='m-5' >
-          <div>
-            <label htmlFor="nome" className='mr-5 text-xl'>Usuário:</label>
-              <input
+        <form onSubmit={handleSignup}>
+          <div className='relative mb-8' data-twe-input-wrapper-init>
+
+                <label htmlFor="exampleFormControlInput1" className='pointer-events-none absolute top-0 mb-0 max-w[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-intenseBlue :placeholder:opacity-0 '>Usuário: </label>
+                <input
                 type="text"
                 id="nome"
                 value={nome}
                 onChange={(e) => setNome(e.target.value)}
-                required  className='rounded-md text-black'/>
+                required className='outiline block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-intenseBlue'/>
 
           </div>
-
           <div>
-                <label htmlFor="email" className='mr-5 text-xl'>Email:</label>
-                    <input
-                      type="email"
-                      id="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required  className='rounded-md text-black' />
+              <label htmlFor="email" className='pointer-events-none left-3 top-0 mb-0 max-w[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-intenseBlue '>Email: </label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required className='peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-intenseBlue  dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0' />
+
           </div>
           <div>
-                <label htmlFor="senha" className='mr-5 text-xl'>Senha:</label>
+                <label htmlFor="senha" className='pointer-events-none left-3 top-0 mb-0 max-w[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-intenseBlue :placeholder:opacity-0'>Senha:</label>
                 <input
                   type="password"
                   id="senha"
                   value={senha}
                   onChange={(e) => setSenha(e.target.value)}
-                  required  className='rounded-md text-black'/>
+                  required className='outiline block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-intenseBlue'/>
           </div>
           <div>
-              <label htmlFor="confirmSenha" >Confir Senha:</label>
-                  <input
+                <label htmlFor="confirmSenha" className='pointer-events-none left-3 top-0 mb-0 max-w[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-intenseBlue :placeholder:opacity-0'>Confirmar Senha:</label>
+                <input
                   type="password"
                   id="confirmSenha"
                   value={confirmSenha}
                   onChange={(e) => setConfirmSenha(e.target.value)}
-                  required  className='rounded-md text-black' />
+                  required  className='outiline block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-intenseBlue'/>
           </div>
+          {/**Endereço info */}
       <div>
-        
-      </div>
-      <div>
-        <label htmlFor="cep"  className='mr-5 text-xl'>CEP:</label>
+        <label htmlFor="cep" className='pointer-events-none left-3 top-0 mb-0 max-w[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-intenseBlue :placeholder:opacity-0'>CEP:</label>
         <input
           type="text"
           id="cep"
           value={cep}
           onChange={handleCepChange}
-          required className='rounded-md text-black'/>
+          required className='outiline block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-intenseBlue'/>
       </div>
       <div>
-        <label htmlFor="logradouro"  className='mr-5 text-xl'>Logradouro:</label>
+        <label htmlFor="logradouro" className='pointer-events-none left-3 top-0 mb-0 max-w[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-intenseBlue :placeholder:opacity-0'>Logradouro:</label>
         <input
           type="text"
           id="logradouro"
           value={logradouro}
           onChange={(e) => setLogradouro(e.target.value)}
-          required className='rounded-md text-black'/>
+          required className='outiline block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-intenseBlue'/>
       </div>
       
       <div>
-        <label htmlFor="localidade"  className='mr-5 text-xl'>Localidade:</label>
+        <label htmlFor="localidade" className='pointer-events-none left-3 top-0 mb-0 max-w[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-intenseBlue :placeholder:opacity-0'>Localidade:</label>
         <input
           type="localidade"
           id="localidade"
           value={localidade}
           onChange={(e) => setLocalidade(e.target.value)}
-          required   className='rounded-md text-black'/>
+          required className='outiline block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-intenseBlue'/>
       </div>
-
       <div>
-        <label htmlFor="UF"  className='mr-5 text-xl'>UF:</label>
+        <label htmlFor="UF" className='pointer-events-none left-3 top-0 mb-0 max-w[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-intenseBlue :placeholder:opacity-0'>Estado (UF):</label>
         <input
           type="text"
           id="UF"
           value={UF}
           onChange={(e) => setUf(e.target.value)}
-          required className='rounded-md text-black'/>
+          required className='outiline block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-intenseBlue'/>
       </div>
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-      <button type="submit"  className='mr-5 text-xl items-center bg-slate-50 text-justGreen rounded-sm p-2'>Concluir</button>
-    </form>
-        </div>
+      <div className='mb-12 pb-1 pt-1 text-center mt-5'>
+        <button type="submit" className='mb-3 inline-block w-full rounded px-6 pb-2 pt-2.5 text-md text-white font-medium uppercase leading-normal shadow-dark-3 transition duration-150 ease-in-out hover:shadow-dark-2 focus:shadow-dark-2 focus:outline-none dark:shadow-black/30' data-twe-ripple-init data-twe-ripple-color='light' style={{
+          background:'linear-gradient(to right, #00f260, #0575e6)'
+        }}>Concluir
+
+        </button>
       </div>
+    </form>
     </section>
   );
 };
